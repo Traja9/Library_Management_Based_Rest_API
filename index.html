@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Library Management System</h1>
+            <p>Manage books, authors, and borrowings</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="books">Books</button>
+            <button class="tab-btn" data-tab="authors">Authors</button>
+            <button class="tab-btn" data-tab="borrowings">Borrowings</button>
+        </div>
+
+        <!-- Books Section -->
+        <div id="books" class="tab-content active">
+            <div class="section-header">
+                <h2>Books Collection</h2>
+                <button class="btn btn-primary" onclick="showAddBookModal()">+ Add Book</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="bookSearchInput" placeholder="Search books by title...">
+                <select id="genreFilter">
+                    <option value="">All Genres</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Biography">Biography</option>
+                </select>
+                <button class="btn" onclick="searchBooks()">Search</button>
+            </div>
+
+            <div id="booksList" class="items-list"></div>
+        </div>
+
+        <!-- Authors Section -->
+        <div id="authors" class="tab-content">
+            <div class="section-header">
+                <h2>Authors</h2>
+                <button class="btn btn-primary" onclick="showAddAuthorModal()">+ Add Author</button>
+            </div>
+
+            <div id="authorsList" class="items-list"></div>
+        </div>
+
+        <!-- Borrowings Section -->
+        <div id="borrowings" class="tab-content">
+            <div class="section-header">
+                <h2>Borrowing Records</h2>
+                <button class="btn btn-primary" onclick="showBorrowBookModal()">+ Borrow Book</button>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="btn" onclick="loadBorrowings('all')">All</button>
+                <button class="btn" onclick="loadBorrowings('borrowed')">Active</button>
+                <button class="btn" onclick="loadBorrowings('overdue')">Overdue</button>
+                <button class="btn" onclick="loadBorrowings('returned')">Returned</button>
+            </div>
+
+            <div id="borrowingsList" class="items-list"></div>
+        </div>
+    </div>
+
+    <!-- Add Book Modal -->
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addBookModal')">&times;</span>
+            <h2>Add New Book</h2>
+            <form id="addBookForm">
+                <input type="text" id="bookTitle" placeholder="Book Title" required>
+                <select id="bookAuthor" required>
+                    <option value="">Select Author</option>
+                </select>
+                <input type="text" id="bookISBN" placeholder="ISBN" required>
+                <select id="bookGenre">
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Biography">Biography</option>
+                </select>
+                <input type="number" id="bookYear" placeholder="Publication Year">
+                <input type="number" id="bookCopies" placeholder="Number of Copies" value="1" min="1">
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Author Modal -->
+    <div id="addAuthorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addAuthorModal')">&times;</span>
+            <h2>Add New Author</h2>
+            <form id="addAuthorForm">
+                <input type="text" id="authorName" placeholder="Author Name" required>
+                <textarea id="authorBio" placeholder="Biography" rows="3"></textarea>
+                <input type="number" id="authorBirthYear" placeholder="Birth Year">
+                <input type="text" id="authorNationality" placeholder="Nationality">
+                <button type="submit" class="btn btn-primary">Add Author</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Borrow Book Modal -->
+    <div id="borrowBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('borrowBookModal')">&times;</span>
+            <h2>Borrow a Book</h2>
+            <form id="borrowBookForm">
+                <select id="borrowBookSelect" required>
+                    <option value="">Select Book</option>
+                </select>
+                <input type="text" id="borrowerName" placeholder="Borrower Name" required>
+                <input type="email" id="borrowerEmail" placeholder="Borrower Email">
+                <button type="submit" class="btn btn-primary">Borrow Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

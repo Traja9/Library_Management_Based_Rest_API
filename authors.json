@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "J.K. Rowling",
+        "bio": "British author best known for the Harry Potter series",
+        "birth_year": 1965,
+        "nationality": "British",
+        "created_at": "2024-01-15 10:30:00"
+    },
+    {
+        "id": 2,
+        "name": "George Orwell",
+        "bio": "English novelist, essayist, and critic",
+        "birth_year": 1903,
+        "nationality": "British",
+        "created_at": "2024-01-15 10:35:00"
+    },
+    {
+        "id": 3,
+        "name": "Harper Lee",
+        "bio": "American novelist widely known for To Kill a Mockingbird",
+        "birth_year": 1926,
+        "nationality": "American",
+        "created_at": "2024-01-15 10:40:00"
+    }
+]
