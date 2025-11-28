@@ -235,8 +235,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-**Savan Thakar**
-- GitHub: [@yourusername](https://github.com/Traja9)
+Savan Thakar
+- GitHub: [@Traja9](https://github.com/Traja9)
 
 ## 🙏 Acknowledgments
 
